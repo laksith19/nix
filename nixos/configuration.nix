@@ -206,14 +206,9 @@
   
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "sway";
-  };
-
-  systemd.user.services.xdg-desktop-portal-wlr.environment = {
     XDG_SESSION_TYPE = "wayland";
   };
 
-
-  
   # kanshi systemd service
   systemd.user.services.kanshi = {
     description = "kanshi daemon";
