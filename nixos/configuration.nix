@@ -212,7 +212,7 @@
     51820 # Wireguard client
   ];
   
-  enviornment.sessionVariables = {
+  environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "sway";
   };
 
