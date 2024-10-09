@@ -1,0 +1,231 @@
+# Laksith's NixOS Config 
+# Primarily used on quirrel (primary laptop)
+{ config, pkgs, ... }:
+
+{
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.initrd.luks.devices."luks-4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea".device = "/dev/disk/by-uuid/4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea";
+  networking.hostName = "quirrel"; # Define your hostname.
+
+  # Disable Systemd Networkd (not the best for laptops)
+  systemd.network.enable = false;
+  # Enable network manager
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "America/Los_Angeles";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.laksith = {
+    isNormalUser = true;
+    description = "laksith";
+    extraGroups = [ "networkmanager" "wheel" "video" "wireshark" ];
+    packages = with pkgs; [ zoom-us ];
+  };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Use nix-flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    # Utils
+    vimPlugins.vim-plug
+    wget
+    fastfetch
+    zsh
+    htop
+    git
+    wireshark-qt
+    
+    # CLI - EyeCandy 
+    lsd
+    bat
+
+    # GUI - sway
+    waybar # alt. bar
+    rofi-wayland # alt. dmenu launcher
+    grim # Screenshot
+    slurp # Screenshot
+    wl-clipboard # Clipboard
+    mako # Notifications
+    
+    # Wayland Firefox with screen-sharing support 
+    (wrapFirefox (firefox-unwrapped.override { pipewireSupport = true; }) {})
+    pavucontrol # Audio control
+    networkmanagerapplet # nm-applet
+    pulseaudio # Get access to pactl for volumekeys
+    wdisplays # Monitors config
+    blueberry # for bluetooth config
+  ];
+
+  # Enable wireshark-cli as well and make appropriate usergroups
+  programs.wireshark.enable = true;
+
+  # NeoVim Installation and config
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    configure = {
+      customRC = ''
+        set nocompatible            " disable compatibility to old-time vi
+        set showmatch               " show matching 
+        set ignorecase              " case insensitive 
+        set mouse=v                 " middle-click paste with 
+        set hlsearch                " highlight search 
+        set incsearch               " incremental search
+        set tabstop=2               " number of columns occupied by a tab 
+        
+        " see multiple spaces as tabstops so <BS> does the right thing
+        set softtabstop=2           
+        
+        set expandtab               " converts tabs to white space
+        set shiftwidth=2            " width for autoindents
+        
+        " indent a new line the same amount as the line just typed
+        set autoindent              
+        
+        set number                  " add line numbers
+        set wildmode=longest,list   " get bash-like tab completions
+        filetype plugin indent on   "allow auto-indenting depending on file type
+        syntax on                   " syntax highlighting
+        set mouse=a                 " enable mouse click
+        set clipboard=unnamedplus   " using system clipboard
+        filetype plugin on
+        set cursorline              " highlight current cursorline
+        set colorcolumn=80          " highlight col 80
+        set ttyfast                 " Speed up scrolling in Vim
+
+        " color scheme configs
+        let g:nord_underline_option = 'none'
+        let g:nord_italic = v:true
+        let g:nord_italic_comments = v:false
+        let g:nord_minimal_mode = v:false
+        let g:nord_alternate_backgrounds = v:false
+        colorscheme nordic
+      '';
+      packages.customizedVim = with pkgs.vimPlugins; {
+        start = [ nordic-nvim ];
+      };
+    };
+  };
+
+  # Nerd fonts
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {fonts = [ "JetBrainsMono" ]; })
+  ];
+
+  # Enable gnome-keyring for sway
+  services.gnome.gnome-keyring.enable = true;
+
+  # Greeter - greetd
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        user = "greeter";
+      };
+    };
+  };
+
+  # Thunderbolt support
+  services.hardware.bolt.enable = true;
+
+  # Audio
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
+  
+  # Bluetooth support 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  
+  # Enable sway
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
+  # Get xdg portals for waybar and hopefully zoom screen share
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
+
+  # brightness
+  programs.light.enable = true;
+
+  # PGP
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  # Currently using a manually imported network manager vpn
+  networking.firewall.allowedUDPPorts = [ 
+    51820 # Wireguard client
+  ];
+  
+  enviornment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "sway";
+  };
+
+  
+  # kanshi systemd service
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+    };
+  };
+
+  system.stateVersion = "24.05";
+
+}
