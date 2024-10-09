@@ -189,13 +189,6 @@
     wrapperFeatures.gtk = true;
   };
 
-  # Get xdg portals for waybar and hopefully zoom screen share
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-    ];
-  };
 
   # brightness
   programs.light.enable = true;
