@@ -45,17 +45,6 @@
     variant = "";
   };
 
-  # Enable SSH
-  services.openssh = {
-    enable = true;
-    ports = [ 22 ];
-    settings = {
-      PasswordAuthentication = true;
-      AllowUsers = [ "laksith" ];
-      PermitRootLogin = "no";
-    };
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.laksith = {
     isNormalUser = true;
@@ -215,10 +204,6 @@
     51820 # Wireguard client
   ];
   
-  # Allow SSH
-  networking.firewall.allowedTCPPorts = [ 
-    22
-  ];
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "sway";
     XDG_SESSION_TYPE = "wayland";
