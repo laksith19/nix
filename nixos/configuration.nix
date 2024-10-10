@@ -51,7 +51,7 @@
     ports = [ 22 ];
     settings = {
       PasswordAuthentication = true;
-      AllowedUsers = [ "laksith" ];
+      AllowUsers = [ "laksith" ];
       PermitRootLogin = "no";
     };
   };
@@ -215,6 +215,10 @@
     51820 # Wireguard client
   ];
   
+  # Allow SSH
+  networking.firewall.allowedTCPPorts = [ 
+    22
+  ];
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "sway";
     XDG_SESSION_TYPE = "wayland";
