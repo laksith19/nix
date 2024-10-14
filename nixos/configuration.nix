@@ -65,7 +65,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Utils
-    vimPlugins.vim-plug
     wget
     fastfetch
     zsh
@@ -133,17 +132,7 @@
         set colorcolumn=80          " highlight col 80
         set ttyfast                 " Speed up scrolling in Vim
 
-        " color scheme configs
-        let g:nord_underline_option = 'none'
-        let g:nord_italic = v:true
-        let g:nord_italic_comments = v:false
-        let g:nord_minimal_mode = v:false
-        let g:nord_alternate_backgrounds = v:false
-        colorscheme nordic
       '';
-      packages.customizedVim = with pkgs.vimPlugins; {
-        start = [ nordic-nvim ];
-      };
     };
   };
 
@@ -217,6 +206,13 @@
       ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
     };
   };
+
+  # stylix ?
+  stylix = {
+    enable = true;
+    image = /home/laksith/.config/wallpaper
+  };
+
 
   system.stateVersion = "24.05";
 
