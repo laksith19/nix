@@ -210,9 +210,9 @@
   # stylix ?
   stylix = {
     enable = true;
-    image = /home/laksith/.config/wallpaper
+    image = /home/laksith/.config/wallpaper;
+    targets.regreet.enable = false;
   };
-
 
   system.stateVersion = "24.05";
 
