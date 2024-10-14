@@ -211,6 +211,8 @@
   stylix = {
     enable = true;
     image = ./wallpaper.jpg;
+    autoEnable = true;
+    fonts.sizes.terminal = 18;
   };
 
   system.stateVersion = "24.05";
