@@ -210,7 +210,7 @@
   # stylix ?
   stylix = {
     enable = true;
-    image = ./wallpaper.png;
+    image = ./wallpaper.jpg;
   };
 
   system.stateVersion = "24.05";
