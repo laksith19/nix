@@ -19,6 +19,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.kitty.enable = true;
+  programs.rofi.enable = true;
+  programs.waybar.enable = true;
+  programs.nvim.enabel = true;
 
 }
 
