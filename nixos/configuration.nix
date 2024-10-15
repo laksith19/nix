@@ -214,7 +214,7 @@
   # stylix ?
   stylix = {
     enable = true;
-    image = ./wallpaper.jpg;
+    image = ./wallpaper.png;
     autoEnable = true;
     fonts.sizes.terminal = 18;
   };
