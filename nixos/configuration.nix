@@ -171,6 +171,9 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
+  # Home Manager Sway Support 
+  security.polkit.enable = true;
   
   # Bluetooth support 
   hardware.bluetooth.enable = true;

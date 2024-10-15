@@ -23,7 +23,12 @@
   programs.waybar.enable = true;
   programs.vim.enable = true;
   programs.bat.enable = true;
-  programs.feh.enable = true;
+  wayland.windowManager.sway  = {
+    enable = true;
+    config = rec {
+      modifier = "Mod4";
+      terminal = "kitty";
+    };
 
 }
 
