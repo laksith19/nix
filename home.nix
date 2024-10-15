@@ -23,6 +23,7 @@
   programs.waybar.enable = true;
   programs.vim.enable = true;
   programs.bat.enable = true;
+  programs.feh.enable = true;
 
 }
 
