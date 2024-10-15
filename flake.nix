@@ -12,12 +12,17 @@
     stylix.url = "github:danth/stylix/release-24.05";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./nixos/configuration.nix
-        inputs.home-manager.nixosModules.default
+        home-manager.nixosModules.default
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.laksith = import ./home.nix;
+        }
         inputs.stylix.nixosModules.stylix
       ];
     };
