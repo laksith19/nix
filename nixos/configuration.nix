@@ -211,12 +211,11 @@
     };
   };
 
-  # stylix ?
+  # stylix
   stylix = {
     enable = true;
     image = ./wallpaper.png;
-    autoEnable = true;
-    fonts.sizes.terminal = 18;
+    polarity = "dark";
   };
 
   system.stateVersion = "unstable";
