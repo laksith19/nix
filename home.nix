@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -26,10 +26,57 @@
   wayland.windowManager.sway  = {
     enable = true;
     config = rec {
+
       modifier = "Mod4";
       terminal = "kitty";
+
+      defaultWorkspace = "1";
+
+      menu = "rofi -show combi | swaymsg";
+
+      window = {
+        titlebar = false;
+        border = 0;
+      };
+
+      gaps = {
+        smartBorders = "on";
+        inner = 2;
+        outer = -2;
+        top = 2;
+        bottom = 2;
+      };
+
+      bars = [{
+        command = "waybar";
+        position = "top";
+      }];
+
+      keybindings = lib.mkOptionDefault {
+        # Brightness
+        "XF86MonBrightnessDown" = "exec light -U 10";
+        "XF86MonBrightnessUp" = "exec light -A 10";
+
+        # Volume
+        "XF86AudioRaiseVolume" = "exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'";
+        "XF86AudioLowerVolume" = "exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'";
+        "XF86AudioMute" = "exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'";
+      };
+
+      input = {
+        "type:touchpad" = {
+          dwt = "enabled";
+          dwtp = "enabled";
+          tap = "enabled";
+          tap_button_map = "lrm";
+          pointer_accel = "0.2";
+          natural_scroll = "enabled";
+        };
+      };
     };
   };
+  services.network-manager-applet.enable = true;
+  services.mako.enable = true;
 
 }
 
