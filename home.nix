@@ -22,6 +22,7 @@
   programs.rofi.enable = true;
   programs.waybar.enable = true;
   programs.vim.enable = true;
+  programs.bat.enable = true;
 
 }
 
