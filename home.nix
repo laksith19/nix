@@ -41,7 +41,7 @@
 
       gaps = {
         smartBorders = "on";
-        smartGaps = "on";
+        smartGaps = true;
         inner = 2;
         outer = -2;
         top = 2;
