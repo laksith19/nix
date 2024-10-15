@@ -219,6 +219,6 @@
     fonts.sizes.terminal = 18;
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "unstable";
 
 }
