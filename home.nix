@@ -32,7 +32,7 @@
 
       defaultWorkspace = "1";
 
-      menu = "rofi -show combi | swaymsg";
+      menu = "'rofi -show combi | swaymsg'";
 
       window = {
         titlebar = false;
