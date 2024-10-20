@@ -64,6 +64,12 @@
         "XF86AudioMute" = "exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'";
       };
 
+      keycodebindings = lib.mkOptionDefault {
+        # Screenshot
+        "99" = "exec 'grimm -g \"$(slurp)\"'";
+      };
+
+
       input = {
         "type:touchpad" = {
           dwt = "enabled";
