@@ -221,6 +221,14 @@
     polarity = "dark";
 
     fonts = {
+      serif = {
+        package = pkgs.nerdfonts;
+        name = "DejaVu Serif";
+      };
+      sans = {
+        package = pkgs.nerdfonts;
+        name = "DejaVu Sans";
+      };
       monospace = {
         package = pkgs.nerdfonts;
         name = "JetBrainsMono";
