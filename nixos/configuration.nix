@@ -225,7 +225,7 @@
         package = pkgs.nerdfonts;
         name = "DejaVu Serif";
       };
-      sans = {
+      sansSerif = {
         package = pkgs.nerdfonts;
         name = "DejaVu Sans";
       };
