@@ -221,8 +221,10 @@
     polarity = "dark";
 
     fonts = {
-      monospace = pkgs.nerdfonts;
-      name = "JetBrainsMono";
+      monospace = {
+        package = pkgs.nerdfonts;
+        name = "JetBrainsMono";
+      };
     };
   };
 
