@@ -219,6 +219,11 @@
     enable = true;
     image = ./wallpaper.png;
     polarity = "dark";
+
+    fonts = {
+      monospace = pkgs.nerdfonts;
+      name = "JetBrainsMono";
+    };
   };
 
   system.stateVersion = "24.05";
