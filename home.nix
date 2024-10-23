@@ -19,11 +19,16 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.kitty.enable = true;
-  programs.rofi.enable = true;
+
+  # Use the wayland version
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+  };
+
   programs.waybar.enable = true;
   programs.vim.enable = true;
   programs.bat.enable = true;
-  programs.spotify-player.enable = true;
   wayland.windowManager.sway  = {
     enable = true;
     config = rec {
