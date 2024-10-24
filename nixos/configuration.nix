@@ -95,7 +95,6 @@
     pulseaudio # Get access to pactl for volumekeys
     wdisplays # Monitors config
     blueberry # for bluetooth config
-    spotify
   ];
 
   # Enable wireshark-cli as well and make appropriate usergroups

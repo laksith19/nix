@@ -36,7 +36,7 @@
       modifier = "Mod4";
       terminal = "kitty";
 
-      defaultWorkspace = "1";
+      defaultWorkspace = "workspace number 1";
 
       menu = "'rofi -show combi | swaymsg'";
 
