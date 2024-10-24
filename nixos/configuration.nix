@@ -5,7 +5,6 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./pkgs.nix
       ./hardware-configuration.nix
     ];
 
@@ -63,6 +62,8 @@
 
   # Use nix-flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
