@@ -69,7 +69,7 @@
         "XF86AudioLowerVolume" = "exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'";
         "XF86AudioMute" = "exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'";
         # Mic
-        "XF86AudioMute" = "exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'";
+        "XF86AudioMicMute" = "exec 'pactl set-source-mute @DEFAULT_SINK@ toggle'";
 
         # Screenshot
         "Print" = "exec 'GRIM_DEFAULT_DIR=~/Pictures/Screenshots grim -g \"$(slurp)\"'";
