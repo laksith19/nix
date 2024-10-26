@@ -95,6 +95,7 @@
     pulseaudio # Get access to pactl for volumekeys
     wdisplays # Monitors config
     blueberry # for bluetooth config
+    vlc # cause you need it you dummy
   ];
 
   # Enable wireshark-cli as well and make appropriate usergroups
