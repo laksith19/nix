@@ -96,6 +96,7 @@
     wdisplays # Monitors config
     blueberry # for bluetooth config
     vlc # cause you need it you dummy
+    abiword # word processor
   ];
 
   # Enable wireshark-cli as well and make appropriate usergroups
