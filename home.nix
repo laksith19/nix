@@ -33,8 +33,7 @@
   programs.vim.enable = true;
   programs.bat.enable = true;
 
-  home.file.".ssh/allowed_signers".text = "<admin@laksith.dev> 
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z laksith@quirrel";
+  home.file.".ssh/allowed_signers".text = "<admin@laksith.dev> ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z laksith@quirrel";
   programs.git = {
     enable = true;
     userName = "laksith19";
