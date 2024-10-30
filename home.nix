@@ -29,6 +29,19 @@
   programs.waybar.enable = true;
   programs.vim.enable = true;
   programs.bat.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "laksith19";
+    userEmail = "admin@laksith.dev";
+
+    extraConfig = {
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_ed25519.pub";
+      init.defaultbranch = "main";
+    };
+  };
+
   wayland.windowManager.sway  = {
     enable = true;
     config = rec {
