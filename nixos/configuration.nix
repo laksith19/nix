@@ -78,6 +78,8 @@
     htop
     git
     wireshark-qt
+    ripgrep
+    fzf
 
     # CLI - EyeCandy
     lsd
@@ -208,13 +210,13 @@
   };
 
   # kanshi systemd service
-  systemd.user.services.kanshi = {
-    description = "kanshi daemon";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
-    };
-  };
+  # systemd.user.services.kanshi = {
+  #   description = "kanshi daemon";
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+  #   };
+  # };
 
   # stylix
   stylix = {
