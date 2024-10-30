@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "laksith";
@@ -45,10 +48,9 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z
     };
   };
 
-  wayland.windowManager.sway  = {
+  wayland.windowManager.sway = {
     enable = true;
     config = rec {
-
       modifier = "Mod4";
       terminal = "kitty";
 
@@ -70,10 +72,12 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z
         bottom = 2;
       };
 
-      bars = [{
-        command = "waybar";
-        position = "top";
-      }];
+      bars = [
+        {
+          command = "waybar";
+          position = "top";
+        }
+      ];
 
       keybindings = lib.mkOptionDefault {
         # Brightness
@@ -91,7 +95,6 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z
         "Print" = "exec 'GRIM_DEFAULT_DIR=~/Pictures/Screenshots grim -g \"$(slurp)\"'";
       };
 
-
       input = {
         "type:touchpad" = {
           dwt = "enabled";
@@ -106,6 +109,4 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z
   };
   services.network-manager-applet.enable = true;
   services.mako.enable = true;
-
 }
-

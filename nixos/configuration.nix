@@ -1,12 +1,14 @@
-# Laksith's NixOS Config 
+# Laksith's NixOS Config
 # Primarily used on quirrel (primary laptop)
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -38,10 +40,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Tailscale 
+  # Tailscale
   services.tailscale.enable = true;
-
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -53,11 +53,11 @@
   users.users.laksith = {
     isNormalUser = true;
     description = "laksith";
-    extraGroups = [ "networkmanager" "wheel" "video" "wireshark" ];
-    packages = with pkgs; [ zoom-us ];
+    extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
+    packages = with pkgs; [zoom-us];
   };
 
-  home-manager.users.laksith  = { pkgs, ... }: {
+  home-manager.users.laksith = {pkgs, ...}: {
     home.stateVersion = "24.05";
   };
 
@@ -65,9 +65,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Use nix-flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -80,8 +78,8 @@
     htop
     git
     wireshark-qt
-    
-    # CLI - EyeCandy 
+
+    # CLI - EyeCandy
     lsd
     bat
 
@@ -92,9 +90,9 @@
     slurp # Screenshot
     wl-clipboard # Clipboard
     mako # Notifications
-    
-    # Wayland Firefox with screen-sharing support 
-    (wrapFirefox (firefox-unwrapped.override { pipewireSupport = true; }) {})
+
+    # Wayland Firefox with screen-sharing support
+    (wrapFirefox (firefox-unwrapped.override {pipewireSupport = true;}) {})
     pavucontrol # Audio control
     networkmanagerapplet # nm-applet
     pulseaudio # Get access to pactl for volumekeys
@@ -116,12 +114,12 @@
     configure = {
       customRC = ''
         set nocompatible            " disable compatibility to old-time vi
-        set showmatch               " show matching 
-        set ignorecase              " case insensitive 
-        set mouse=v                 " middle-click paste with 
-        set hlsearch                " highlight search 
+        set showmatch               " show matching
+        set ignorecase              " case insensitive
+        set mouse=v                 " middle-click paste with
+        set hlsearch                " highlight search
         set incsearch               " incremental search
-        set tabstop=2               " number of columns occupied by a tab 
+        set tabstop=2               " number of columns occupied by a tab
         set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
         set expandtab               " converts tabs to white space
         set shiftwidth=2            " width for autoindents
@@ -147,7 +145,7 @@
 
   # Nerd fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
   # Enable gnome-keyring for sway
@@ -177,19 +175,18 @@
     jack.enable = true;
   };
 
-  # Home Manager Sway Support 
+  # Home Manager Sway Support
   security.polkit.enable = true;
-  
-  # Bluetooth support 
+
+  # Bluetooth support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-  
+
   # Enable sway
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
-
 
   # brightness
   programs.light.enable = true;
@@ -201,10 +198,10 @@
   };
 
   # Currently using a manually imported network manager vpn
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
     51820 # Wireguard client
   ];
-  
+
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "sway";
     XDG_SESSION_TYPE = "wayland";
@@ -242,5 +239,4 @@
   };
 
   system.stateVersion = "24.05";
-
 }

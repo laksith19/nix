@@ -17,7 +17,17 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, nixos-hardware, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    stylix,
+    nixos-hardware,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
@@ -32,5 +42,6 @@
         stylix.nixosModules.stylix
       ];
     };
+    formatter.${system} = pkgs.alejandra;
   };
 }
