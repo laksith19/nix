@@ -43,6 +43,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z
     extraConfig = {
       commit.gpgsign = true;
       gpg.format = "ssh";
+      gpg.ssh.allowedsignersfile = "~/.ssh/allowed_signers";
       user.signingkey = "~/.ssh/id_ed25519.pub";
       init.defaultbranch = "main";
     };
