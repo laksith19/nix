@@ -49,12 +49,14 @@
     variant = "";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.laksith = {
-    isNormalUser = true;
-    description = "laksith";
-    extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
-    packages = with pkgs; [zoom-us];
+  users = {
+    mutableUsers = false;
+    users.laksith = {
+      isNormalUser = true;
+      description = "laksith";
+      extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
+      packages = with pkgs; [zoom-us];
+    };
   };
 
   # Allow unfree packages
