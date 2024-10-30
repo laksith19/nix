@@ -57,10 +57,6 @@
     packages = with pkgs; [zoom-us];
   };
 
-  home-manager.users.laksith = {pkgs, ...}: {
-    home.stateVersion = "24.05";
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
