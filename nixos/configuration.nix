@@ -78,6 +78,7 @@
     wireshark-qt
     ripgrep
     fzf
+    argyllcms
 
     # CLI - EyeCandy
     lsd
