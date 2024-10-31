@@ -50,7 +50,6 @@
   };
 
   users = {
-    mutableUsers = false;
     users.laksith = {
       isNormalUser = true;
       description = "laksith";
