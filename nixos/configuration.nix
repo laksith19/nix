@@ -90,6 +90,7 @@
     slurp # Screenshot
     wl-clipboard # Clipboard
     mako # Notifications
+    xfce.thunar # File Manager
 
     # Wayland Firefox with screen-sharing support
     (wrapFirefox (firefox-unwrapped.override {pipewireSupport = true;}) {})
@@ -104,6 +105,9 @@
 
   # Enable wireshark-cli as well and make appropriate usergroups
   programs.wireshark.enable = true;
+
+  # Install Steam
+  programs.steam.enable = true;
 
   # NeoVim Installation and config
   programs.neovim = {
@@ -181,6 +185,9 @@
   # Bluetooth support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  # Enable 32-bit support
+  hardware.amdgpu.amdvlk.support32Bit.enable = true;
 
   # Enable sway
   programs.sway = {
