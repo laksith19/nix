@@ -34,7 +34,7 @@
   programs.bat.enable = true;
 
   home.file = {
-    ".ssh/allowed_signers".text = lib.strings.concatStringsSep "\n" [ 
+    ".ssh/allowed_signers".text = lib.strings.concatStringsSep "\n" [
       "<admin@laksith.dev> ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6zftyMUeIQVYkRag6CxWqYShjWnErQ24NeaU95Bp2z laksith@quirrel"
       "<admin@laksith.dev> ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB1k8sWCp4/J+uw5RFHQ0UrVJpxK7fExlJlALNsHehs8 laksith@tsunami"
     ];
