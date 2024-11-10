@@ -40,8 +40,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Tailscale
-  services.tailscale.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -77,7 +75,7 @@
     wireshark-qt
     ripgrep
     fzf
-    argyllcms
+    comma
 
     # CLI - EyeCandy
     lsd
