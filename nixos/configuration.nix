@@ -68,13 +68,11 @@
     tmux
     wget
     fastfetch
-    zsh
     htop
     git
     wireshark-qt
     ripgrep
     fzf
-    comma
 
     # CLI - EyeCandy
     lsd
