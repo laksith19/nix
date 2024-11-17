@@ -53,8 +53,8 @@
       description = "laksith";
       extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
       packages = with pkgs; [
-      zoom-us
-      pkgs-unstable.zed-editor
+        zoom-us
+        pkgs-unstable.zed-editor
       ];
     };
   };
