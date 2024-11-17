@@ -3,6 +3,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   imports = [
@@ -51,7 +52,10 @@
       isNormalUser = true;
       description = "laksith";
       extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
-      packages = with pkgs; [zoom-us];
+      packages = with pkgs; [
+      zoom-us
+      pkgs-unstable.zed-editor
+      ];
     };
   };
 
@@ -96,6 +100,7 @@
     blueberry # for bluetooth config
     vlc # cause you need it you dummy
     abiword # word processor
+    signal-desktop # well this u need i guess (should I just get discord as well...)
   ];
 
   # Enable wireshark-cli as well and make appropriate usergroups
@@ -203,6 +208,12 @@
   networking.firewall.allowedUDPPorts = [
     51820 # Wireguard client
   ];
+
+  # Enable Rootless docker
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "sway";
