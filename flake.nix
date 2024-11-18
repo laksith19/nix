@@ -40,7 +40,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.laksith = import ./home.nix;
+          home-manager.users.laksith = import ./homes/laksith.nix;
         }
         stylix.nixosModules.stylix
       ];
