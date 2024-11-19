@@ -16,6 +16,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel instead of LTS
+  # Moved here cause for somereason thunderbolt and usb-c dp broke in 6.6.61
+  # L - linux moment
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.luks.devices."luks-4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea".device = "/dev/disk/by-uuid/4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea";
@@ -156,8 +158,12 @@
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
-  # Enable gnome-keyring for sway
+  # Enable and auto-unlock gnome-keyring in sway on login
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services."laksith".enableGnomeKeyring = true;
+
+  # Get seahorse to manage and view keyring
+  programs.seahorse.enable = true;
 
   # Greeter - greetd
   services.greetd = {
