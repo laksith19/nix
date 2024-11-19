@@ -155,7 +155,7 @@
 
   # Nerd fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono" "Noto"];})
   ];
 
   # Enable and auto-unlock gnome-keyring in sway on login
@@ -248,11 +248,11 @@
     fonts = {
       serif = {
         package = pkgs.nerdfonts;
-        name = "DejaVu Serif";
+        name = "Noto Serif";
       };
       sansSerif = {
         package = pkgs.nerdfonts;
-        name = "DejaVu Sans";
+        name = "Noto Sans";
       };
       monospace = {
         package = pkgs.nerdfonts;
