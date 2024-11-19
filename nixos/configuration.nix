@@ -15,6 +15,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use latest kernel instead of LTS
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.initrd.luks.devices."luks-4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea".device = "/dev/disk/by-uuid/4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea";
   networking.hostName = "quirrel"; # Define your hostname.
 
