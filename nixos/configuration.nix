@@ -101,6 +101,7 @@
     vlc # cause you need it you dummy
     abiword # word processor
     signal-desktop # well this u need i guess (should I just get discord as well...)
+    remmina # VNC / SPICE client
   ];
 
   # Enable wireshark-cli as well and make appropriate usergroups
