@@ -214,6 +214,12 @@
     enableSSHSupport = true;
   };
 
+  # ZSH
+  programs.zsh = {
+    enable = true;
+    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+  };
+
   # Currently using a manually imported network manager vpn
   networking.firewall.allowedUDPPorts = [
     51820 # Wireguard client
