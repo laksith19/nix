@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   pkgs-unstable,
   ...
@@ -73,32 +74,17 @@
   environment = {
     systemPackages = with pkgs; [
       # Utils
-      tmux
-      wget
-      fastfetch
-      htop
-      git
-      wireshark-qt
       ripgrep
       fzf
 
-      # CLI - EyeCandy
-      lsd
-      bat
-
       # GUI - sway
-      waybar # alt. bar
-      rofi-wayland # alt. dmenu launcher
       grim # Screenshot
       slurp # Screenshot
       wl-clipboard # Clipboard
       mako # Notifications
-      xfce.thunar # File Manager
 
       # Wayland Firefox with screen-sharing support
-      (wrapFirefox (firefox-unwrapped.override {pipewireSupport = true;}) {})
       pavucontrol # Audio control
-      networkmanagerapplet # nm-applet
       pulseaudio # Get access to pactl for volumekeys
       wdisplays # Monitors config
       blueberry # for bluetooth config
@@ -111,16 +97,40 @@
       XDG_CURRENT_DESKTOP = "sway";
       XDG_SESSION_TYPE = "wayland";
     };
+    shellAliases = {
+      wget = "${lib.getExe pkgs.wget2}";
+      neofetch = "${lib.getExe pkgs.fastfetch}";
+      ls = "${lib.getExe pkgs.lsd}";
+      cat = "${lib.getExe pkgs.bat}";
+    };
   };
 
   programs = {
-    wireshark.enable = true;
-
+    tmux.enable = true;
+    git.enable = true;
+    htop.enable = true;
     steam.enable = true;
-
     seahorse.enable = true;
-
     light.enable = true;
+    thunar.enable = true;
+    nm-applet.enable = true;
+
+    firefox = {
+      enable = true;
+      wrapperConfig = {
+        pipewireSupport = true;
+      };
+    };
+
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
+
+    fzf = {
+      keybindings = true;
+      fuzzyCompletion = true;
+    };
 
     sway = {
       enable = true;

@@ -22,11 +22,7 @@
     waybar.enable = true;
     vim.enable = true;
     bat.enable = true;
-
-    rofi = {
-      enable = true;
-      package = pkgs.rofi-wayland;
-    };
+    wofi.enable = true;
 
     git = {
       enable = true;
@@ -50,7 +46,7 @@
 
       defaultWorkspace = "workspace number 1";
 
-      menu = "'${lib.getExe pkgs.rofi} -show combi | ${lib.getExe' pkgs.sway "swaymsg"}'";
+      menu = "'${lib.getExe pkgs.wofi} --show drun | ${lib.getExe' pkgs.sway "swaymsg"}'";
 
       window = {
         titlebar = false;
@@ -103,7 +99,6 @@
   };
 
   services = {
-    network-manager-applet.enable = true;
     mako = {
       enable = true;
       defaultTimeout = 5000; # milliseconds
