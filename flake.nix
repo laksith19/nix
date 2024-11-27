@@ -46,5 +46,8 @@
       ];
     };
     formatter.${system} = pkgs.alejandra;
+    devShells.${system}.default = pkgs.mkShell {
+      shellHook = "alias rebuild='sudo nixos-rebuild switch --flake ./'";
+    };
   };
 }

@@ -28,8 +28,6 @@
       efi.canTouchEfiVariables = true;
     };
 
-    # Linux moment default LTS kernel breaks USB-C display and thunderbolt
-    kernelPackages = pkgs.linuxPackages_latest;
     initrd.luks.devices."luks-4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea".device = "/dev/disk/by-uuid/4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea";
   };
 
