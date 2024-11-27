@@ -82,6 +82,8 @@
       slurp # Screenshot
       wl-clipboard # Clipboard
       mako # Notifications
+      waybar # bar
+      wofi # launcher
 
       # Wayland Firefox with screen-sharing support
       pavucontrol # Audio control
