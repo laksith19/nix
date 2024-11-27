@@ -59,6 +59,7 @@
   users = {
     users.laksith = {
       uid = 1000;
+      shell = pkgs.zsh;
       isNormalUser = true;
       description = "laksith";
       extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
