@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
+    ../hardware/thinkpad.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -228,7 +228,7 @@
 
   stylix = {
     enable = true;
-    image = ./wallpaper.png;
+    image = ../assets/wallpaper.png;
     polarity = "dark";
 
     fonts = {

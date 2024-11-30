@@ -34,7 +34,7 @@
     nixosConfigurations.quirrel = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit pkgs-unstable;};
       modules = [
-        ./nixos/configuration.nix
+        ./hosts/quirrel.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-x13-amd
         home-manager.nixosModules.default
         {
