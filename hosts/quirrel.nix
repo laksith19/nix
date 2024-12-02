@@ -110,11 +110,15 @@
     tmux.enable = true;
     git.enable = true;
     htop.enable = true;
-    steam.enable = true;
     seahorse.enable = true;
     light.enable = true;
     thunar.enable = true;
     nm-applet.enable = true;
+
+    steam = {
+     enable = true;
+     gamescopeSession.enable = true;
+    };
 
     firefox = {
       enable = true;
