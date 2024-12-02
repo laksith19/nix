@@ -88,7 +88,6 @@
       pavucontrol # Audio control
       pulseaudio # Get access to pactl for volumekeys
       wdisplays # Monitors config
-      blueberry # for bluetooth config
       vlc # cause you need it you dummy
       abiword # word processor
       signal-desktop # well this u need i guess (should I just get discord as well...)
@@ -203,6 +202,8 @@
 
   services = {
     gnome.gnome-keyring.enable = true;
+    hardware.bolt.enable = true;
+    blueman.enable = true;
 
     greetd = {
       enable = true;
@@ -213,8 +214,6 @@
         };
       };
     };
-
-    hardware.bolt.enable = true;
 
     pipewire = {
       enable = true;
