@@ -28,7 +28,7 @@
       efi.canTouchEfiVariables = true;
     };
 
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    binfmt.emulatedSystems = ["aarch64-linux"];
 
     initrd.luks.devices."luks-4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea".device = "/dev/disk/by-uuid/4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea";
   };
@@ -117,8 +117,8 @@
     nm-applet.enable = true;
 
     steam = {
-     enable = true;
-     gamescopeSession.enable = true;
+      enable = true;
+      gamescopeSession.enable = true;
     };
 
     firefox = {
