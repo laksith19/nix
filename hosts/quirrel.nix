@@ -61,7 +61,6 @@
   users = {
     users.laksith = {
       uid = 1000;
-      shell = pkgs.zsh;
       isNormalUser = true;
       description = "laksith";
       extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
@@ -197,7 +196,8 @@
   ];
 
   security = {
-    pam.services."laksith".enableGnomeKeyring = true; # Unlock on login
+    # Unlock on login ... hmmm this doesn't seem to work properly
+    pam.services."laksith".enableGnomeKeyring = true;
     rtkit.enable = true;
     polkit.enable = true;
   };
