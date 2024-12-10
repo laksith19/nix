@@ -23,6 +23,7 @@
     vim.enable = true;
     bat.enable = true;
     wofi.enable = true;
+    starship.enable = true;
 
     git = {
       enable = true;

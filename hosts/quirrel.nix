@@ -75,7 +75,6 @@
     systemPackages = with pkgs; [
       # Utils
       ripgrep
-      fzf
 
       # GUI - sway
       grim # Screenshot
@@ -115,6 +114,11 @@
     thunar.enable = true;
     nm-applet.enable = true;
 
+    starship = {
+      enable = true;
+      presets = [ "plain-text-symbols" ];
+    };
+
     steam = {
       enable = true;
       gamescopeSession.enable = true;
@@ -145,11 +149,6 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-    };
-
-    zsh = {
-      enable = true;
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     };
 
     neovim = {
