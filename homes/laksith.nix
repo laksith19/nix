@@ -20,7 +20,6 @@
     home-manager.enable = true;
     kitty.enable = true;
     waybar.enable = true;
-    vim.enable = true;
     bat.enable = true;
     wofi.enable = true;
     bash.enable = true;
