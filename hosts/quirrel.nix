@@ -113,6 +113,7 @@
     light.enable = true;
     thunar.enable = true;
     nm-applet.enable = true;
+    bash.blesh.enable = true;
 
     starship = {
       enable = true;

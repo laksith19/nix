@@ -24,7 +24,18 @@
     bat.enable = true;
     wofi.enable = true;
     bash.enable = true;
-    starship.enable = true;
+
+    starship = {
+      enable = true;
+      settings = {
+        format = lib.concatStrings [
+          "$directory"
+          "$character"
+        ];
+
+        right_format = "$all";
+      };
+    };
 
     git = {
       enable = true;
