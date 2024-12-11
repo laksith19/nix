@@ -20,7 +20,6 @@
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = {
@@ -40,7 +39,6 @@
     nixosConfigurations.quirrel = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit pkgs-unstable;};
       modules = [
-
         ./hosts/quirrel.nix
 
         nixos-hardware.nixosModules.lenovo-thinkpad-x13-amd
