@@ -75,7 +75,7 @@
     systemPackages = with pkgs; [
       # Utils
       ripgrep
-      nvim
+      neovim
 
       # GUI - sway
       grim # Screenshot
