@@ -114,7 +114,6 @@
     thunar.enable = true;
     nm-applet.enable = true;
     starship.enable = true;
-    bash.blesh.enable = true;
 
     steam = {
       enable = true;

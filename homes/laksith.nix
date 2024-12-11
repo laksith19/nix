@@ -30,10 +30,10 @@
       settings = {
         format = lib.concatStrings [
           "$directory"
+          "$all"
           "$character"
         ];
 
-        right_format = "$all";
       };
     };
 
