@@ -113,12 +113,8 @@
     light.enable = true;
     thunar.enable = true;
     nm-applet.enable = true;
+    starship.enable = true;
     bash.blesh.enable = true;
-
-    starship = {
-      enable = true;
-      presets = [ "plain-text-symbols" ];
-    };
 
     steam = {
       enable = true;
