@@ -153,6 +153,8 @@
 
     nixvim = {
       enable = true;
+      viAlias = true;
+      vimAlias = true;
 
       colorschemes.catppuccin = {
         enable = true;
