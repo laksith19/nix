@@ -6,6 +6,11 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -30,6 +35,7 @@
     stylix,
     nixos-hardware,
     nix-index-database,
+    nixvim,
     ...
   }: let
     system = "x86_64-linux";
@@ -56,6 +62,7 @@
         }
 
         stylix.nixosModules.stylix
+        nixvim.nixosModules.nixvim
       ];
     };
     formatter.${system} = pkgs.alejandra;

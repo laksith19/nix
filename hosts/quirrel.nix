@@ -75,7 +75,6 @@
     systemPackages = with pkgs; [
       # Utils
       ripgrep
-      neovim
 
       # GUI - sway
       grim # Screenshot
@@ -117,7 +116,7 @@
 
     starship = {
       enable = true;
-      presets = [ "nerd-font-symbols" ];
+      presets = ["nerd-font-symbols"];
     };
 
     steam = {
@@ -152,41 +151,43 @@
       enableSSHSupport = true;
     };
 
-    neovim = {
+    nixvim = {
       enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      configure = {
-        customRC = ''
-          set nocompatible            " disable compatibility to old-time vi
-          set showmatch               " show matching
-          set ignorecase              " case insensitive
-          set mouse=v                 " middle-click paste with
-          set hlsearch                " highlight search
-          set incsearch               " incremental search
-          set tabstop=2               " number of columns occupied by a tab
-          set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
-          set expandtab               " converts tabs to white space
-          set shiftwidth=2            " width for autoindents
-          set autoindent              " indent a new line the same amount as the line just typed
-          set number                  " add line numbers
-          set wildmode=longest,list   " get bash-like tab completions
-          set mouse=a                 " enable mouse click
-          set clipboard=unnamedplus   " using system clipboard
-          set cursorline              " highlight current cursorline
-          set linebreak               " Insert EOL's breaking at
-          set breakat=" "
-          set breakindent             " break
-          set ttyfast                 " Speed up scrolling in Vim
 
-          filetype plugin on
-          filetype plugin indent on   " allow auto-indenting depending on file type
-
-          syntax on                   " syntax highlighting
-
-        '';
+      colorschemes.catppuccin = {
+        enable = true;
+        settings.flavour = "macchiato";
       };
+
+      #TODO: Hacky way to just use current config but nix it in the future
+      extraConfigVim = ''
+        set nocompatible            " disable compatibility to old-time vi
+        set showmatch               " show matching
+        set ignorecase              " case insensitive
+        set mouse=v                 " middle-click paste with
+        set hlsearch                " highlight search
+        set incsearch               " incremental search
+        set tabstop=2               " number of columns occupied by a tab
+        set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
+        set expandtab               " converts tabs to white space
+        set shiftwidth=2            " width for autoindents
+        set autoindent              " indent a new line the same amount as the line just typed
+        set number                  " add line numbers
+        set wildmode=longest,list   " get bash-like tab completions
+        set mouse=a                 " enable mouse click
+        set clipboard=unnamedplus   " using system clipboard
+        set cursorline              " highlight current cursorline
+        set linebreak               " Insert EOL's breaking at
+        set breakat=" "
+        set breakindent             " break
+        set ttyfast                 " Speed up scrolling in Vim
+
+        filetype plugin on
+        filetype plugin indent on   " allow auto-indenting depending on file type
+
+        syntax on                   " syntax highlighting
+
+      '';
     };
   };
 
@@ -238,25 +239,7 @@
   stylix = {
     enable = true;
     image = ../assets/wallpaper.png;
-
-    base16Scheme = {
-      base00 = "#24273a"; # base
-      base01 = "#1e2030"; # mantle
-      base02 = "#363a4f"; # surface0
-      base03 = "#494d64"; # surface1
-      base04 = "#5b6078"; # surface2
-      base05 = "#cad3f5"; # text
-      base06 = "#f4dbd6"; # rosewater
-      base07 = "#b7bdf8"; # lavender
-      base08 = "#ed8796"; # red
-      base09 = "#f5a97f"; # peach
-      base0A = "#eed49f"; # yellow
-      base0B = "#a6da95"; # green
-      base0C = "#8bd5ca"; # teal
-      base0D = "#8aadf4"; # blue
-      base0E = "#c6a0f6"; # mauve
-      base0F = "#f0c6c6"; # flamingo
-    };
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
 
     fonts = {
       serif = {
