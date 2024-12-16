@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   imports = [
@@ -64,11 +63,13 @@
       isNormalUser = true;
       description = "laksith";
       extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
-      packages = with pkgs; [
-        zoom-us
-        pkgs-unstable.zed-editor
-      ];
     };
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.laksith = import ../homes/laksith.nix;
   };
 
   environment = {
@@ -92,6 +93,8 @@
       abiword # word processor
       signal-desktop # well this u need i guess (should I just get discord as well...)
       remmina # VNC / SPICE client
+
+      zoom-us # Zoom meetings client
     ];
     sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
@@ -113,6 +116,7 @@
     light.enable = true;
     thunar.enable = true;
     nm-applet.enable = true;
+    nix-index-database.comma.enable = true;
 
     starship = {
       enable = true;
