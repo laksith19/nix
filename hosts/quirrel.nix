@@ -26,6 +26,8 @@
       efi.canTouchEfiVariables = true;
     };
 
+    kernelParams = [ "console=tty1" ];
+
     binfmt.emulatedSystems = ["aarch64-linux"];
 
     initrd.luks.devices."luks-4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea".device = "/dev/disk/by-uuid/4dd038a9-c121-4b7b-b4fe-a0a65a6b81ea";
@@ -215,6 +217,8 @@
 
     greetd = {
       enable = true;
+      vt = 2;
+
       settings = {
         default_session = {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
