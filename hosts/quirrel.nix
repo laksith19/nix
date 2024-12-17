@@ -214,6 +214,7 @@
     gnome.gnome-keyring.enable = true;
     hardware.bolt.enable = true;
     blueman.enable = true;
+    fwupd.enable = true;
 
     greetd = {
       enable = true;
