@@ -93,7 +93,7 @@
       vlc # cause you need it you dummy
       abiword # word processor
       signal-desktop # well this u need i guess
-      discord-ptb # and this...
+      discord # and this...
       remmina # VNC / SPICE client
 
       zoom-us # Zoom meetings client
