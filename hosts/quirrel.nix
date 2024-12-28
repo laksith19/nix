@@ -92,7 +92,8 @@
       wdisplays # Monitors config
       vlc # cause you need it you dummy
       abiword # word processor
-      signal-desktop # well this u need i guess (should I just get discord as well...)
+      signal-desktop # well this u need i guess
+      discord-ptb # and this...
       remmina # VNC / SPICE client
 
       zoom-us # Zoom meetings client
