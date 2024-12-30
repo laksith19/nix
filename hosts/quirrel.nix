@@ -219,6 +219,7 @@
     hardware.bolt.enable = true;
     blueman.enable = true;
     fwupd.enable = true;
+    fprintd.enable = true;
 
     greetd = {
       enable = true;
