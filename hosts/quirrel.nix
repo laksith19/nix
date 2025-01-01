@@ -88,6 +88,7 @@
       mako # Notifications
       waybar # bar
       wofi # launcher
+      bitwarden-desktop # password manager
 
       # Wayland Firefox with screen-sharing support
       pavucontrol # Audio control
