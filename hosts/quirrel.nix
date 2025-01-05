@@ -29,7 +29,7 @@
       efi.canTouchEfiVariables = true;
     };
 
-    kernelParams = [ "console=tty1" ];
+    kernelParams = ["console=tty1"];
 
     binfmt.emulatedSystems = ["aarch64-linux"];
 

@@ -37,6 +37,9 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    rebuild = pkgs.writeShellScriptBin "rebuild" ''
+      sudo nixos-rebuild switch --flake ./
+    '';
   in {
     nixosConfigurations.quirrel = nixpkgs.lib.nixosSystem {
       modules = [
@@ -54,7 +57,7 @@
     };
     formatter.${system} = pkgs.alejandra;
     devShells.${system}.default = pkgs.mkShell {
-      shellHook = "alias rebuild='sudo nixos-rebuild switch --flake ./'";
+      packages = [rebuild];
     };
   };
 }
