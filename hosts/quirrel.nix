@@ -89,8 +89,7 @@
       waybar # bar
       wofi # launcher
       bitwarden-desktop # password manager
-      spice
-      spice-gtk
+      virt-viewer
 
       # Wayland Firefox with screen-sharing support
       pavucontrol # Audio control
