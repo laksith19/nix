@@ -89,6 +89,7 @@
       waybar # bar
       wofi # launcher
       bitwarden-desktop # password manager
+      spice
       spice-gtk
 
       # Wayland Firefox with screen-sharing support
