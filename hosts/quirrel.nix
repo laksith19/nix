@@ -99,8 +99,7 @@
       abiword # word processor
       signal-desktop # well this u need i guess
       discord # and this...
-      remmina # VNC / SPICE client
-
+      remmina # VNC
       zoom-us # Zoom meetings client
     ];
     sessionVariables = {
