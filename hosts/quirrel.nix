@@ -223,6 +223,12 @@
     fprintd.enable = true;
     printing.enable = true;
 
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
     greetd = {
       enable = true;
       vt = 2;
