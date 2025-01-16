@@ -221,6 +221,7 @@
     blueman.enable = true;
     fwupd.enable = true;
     fprintd.enable = true;
+    printing.enable = true;
 
     greetd = {
       enable = true;
