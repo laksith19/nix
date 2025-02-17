@@ -37,7 +37,12 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    rebuild = pkgs.writeShellScriptBin "rebuild" ''
+    update = pkgs.writeShellScriptBin "update" ''
+      git pull
+      nix flake update
+      git add .
+      git commit -m "chore: update flake"
+      git push
       sudo nixos-rebuild switch --flake ./
     '';
   in {
@@ -57,7 +62,7 @@
     };
     formatter.${system} = pkgs.alejandra;
     devShells.${system}.default = pkgs.mkShell {
-      packages = [rebuild];
+      packages = [update];
     };
   };
 }
