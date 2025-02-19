@@ -118,6 +118,7 @@
       wget = "${lib.getExe pkgs.wget2}";
       neofetch = "${lib.getExe pkgs.fastfetch}";
       ls = "${lib.getExe pkgs.lsd}";
+      tree = "${lib.getExe pkgs.lsd} --tree";
       cat = "${lib.getExe pkgs.bat}";
     };
   };
