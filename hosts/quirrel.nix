@@ -207,21 +207,21 @@
       enableSyntaxHighlighting = true;
       enableFiletypeDetection = true;
 
-      plugins = with pkgs.vimPlugins; [
-        nvim-treesitter # Syntax-aware highlighting
-        telescope-nvim # Fuzzy finder
-        lualine-nvim # Statusline
-        which-key-nvim # Keybinding hints
+      plugins = {
+        treesitter.enable = true; # Syntax-aware highlighting
+        telescope.enable = true; # Fuzzy finder
+        lualine.enable = true; # Statusline
+        which-key.enable = true; # Keybinding hints
 
         # Autocomplete Plugins
-        nvim-cmp
-        cmp-nvim-lsp
-        cmp-buffer
-        cmp-path
-        cmp-cmdline
-        LuaSnip
-        cmp_luasnip
-      ];
+        cmp.enable = true;
+        cmp-nvim-lsp.enable = true;
+        cmp-buffer.enable = true;
+        cmp-path.enable = true;
+        cmp-cmdline.enable = true;
+        luasnip.enable = true;
+        cmp_luasnip.enable = true;
+      };
 
       # Lua config for nvim-cmp
       extraConfigLua = ''
