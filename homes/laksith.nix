@@ -42,7 +42,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    config = rec {
+    config =  {
       modifier = "Mod4";
       terminal = "${lib.getExe pkgs.kitty}";
 

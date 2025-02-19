@@ -208,6 +208,7 @@
 
       plugins = {
         treesitter.enable = true; # Syntax-aware highlighting
+        web-devicons.enable = true;
         telescope.enable = true; # Fuzzy finder
         lualine.enable = true; # Statusline
         which-key.enable = true; # Keybinding hints
