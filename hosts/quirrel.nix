@@ -179,7 +179,7 @@
         settings.flavour = "macchiato";
       };
 
-      options = {
+      opts = {
         compatible = false; # Disable Vi compatibility mode
         showmatch = true; # Show matching brackets when cursor is over one
         ignorecase = true; # Case-insensitive search
