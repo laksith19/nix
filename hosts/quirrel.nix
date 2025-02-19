@@ -205,7 +205,6 @@
         ttyfast = true; # Optimize performance for fast terminals
       };
 
-
       plugins = {
         treesitter.enable = true; # Syntax-aware highlighting
         web-devicons.enable = true;
@@ -221,7 +220,7 @@
         cmp-cmdline.enable = true;
         luasnip.enable = true;
         cmp_luasnip.enable = true;
-        
+
         lsp = {
           enable = true;
           servers = {
