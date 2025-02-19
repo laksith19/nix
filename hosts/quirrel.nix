@@ -204,8 +204,6 @@
         ttyfast = true; # Optimize performance for fast terminals
       };
 
-      enableSyntaxHighlighting = true;
-      enableFiletypeDetection = true;
 
       plugins = {
         treesitter.enable = true; # Syntax-aware highlighting
@@ -221,10 +219,22 @@
         cmp-cmdline.enable = true;
         luasnip.enable = true;
         cmp_luasnip.enable = true;
+        
+        lsp = {
+          enable = true;
+          servers = {
+            nixd.enable = true;
+            pyright.enable = true;
+          };
+        };
       };
 
       # Lua config for nvim-cmp
       extraConfigLua = ''
+
+        vim.cmd("filetype plugin indent on")
+        vim.cmd("syntax on")
+
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 
@@ -275,7 +285,6 @@
       '';
 
       extraPackages = with pkgs; [
-        lua-language-server
         nixd
         pyright
       ];
