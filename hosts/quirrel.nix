@@ -80,6 +80,14 @@
     systemPackages = with pkgs; [
       # Utils
       ripgrep
+      bat
+      lsd
+      fastfetch
+      wget
+      wget2
+      dnsutils
+      traceroute
+      python3Full
 
       # GUI - sway
       grim # Screenshot
@@ -171,35 +179,106 @@
         settings.flavour = "macchiato";
       };
 
-      #TODO: Hacky way to just use current config but nix it in the future
-      extraConfigVim = ''
-        set nocompatible            " disable compatibility to old-time vi
-        set showmatch               " show matching
-        set ignorecase              " case insensitive
-        set mouse=v                 " middle-click paste with
-        set hlsearch                " highlight search
-        set incsearch               " incremental search
-        set tabstop=2               " number of columns occupied by a tab
-        set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
-        set expandtab               " converts tabs to white space
-        set shiftwidth=2            " width for autoindents
-        set autoindent              " indent a new line the same amount as the line just typed
-        set number                  " add line numbers
-        set wildmode=longest,list   " get bash-like tab completions
-        set mouse=a                 " enable mouse click
-        set clipboard=unnamedplus   " using system clipboard
-        set cursorline              " highlight current cursorline
-        set linebreak               " Insert EOL's breaking at
-        set breakat=" "
-        set breakindent             " break
-        set ttyfast                 " Speed up scrolling in Vim
+      options = {
+        compatible = false; # Disable Vi compatibility mode
+        showmatch = true; # Show matching brackets when cursor is over one
+        ignorecase = true; # Case-insensitive search
+        mouse = "a"; # Enable mouse support in all modes
+        hlsearch = true; # Highlight search results
+        incsearch = true; # Enable incremental search
 
-        filetype plugin on
-        filetype plugin indent on   " allow auto-indenting depending on file type
+        # Tab and indentation settings
+        tabstop = 2; # Number of spaces per tab
+        softtabstop = 2; # Spaces per tab when hitting <BS>
+        expandtab = true; # Convert tabs to spaces
+        shiftwidth = 2; # Number of spaces for autoindent
+        autoindent = true; # Maintain indent level of previous line
 
-        syntax on                   " syntax highlighting
+        number = true; # Show line numbers
+        wildmode = ["longest" "list"]; # Bash-like tab completion behavior
 
+        clipboard = "unnamedplus"; # Use system clipboard for copy/paste
+        cursorline = true; # Highlight the current cursor line
+        linebreak = true; # Break lines at word boundaries
+        breakindent = true; # Indent wrapped lines visually
+        ttyfast = true; # Optimize performance for fast terminals
+      };
+
+      enableSyntaxHighlighting = true;
+      enableFiletypeDetection = true;
+
+      plugins = with pkgs.vimPlugins; [
+        nvim-treesitter # Syntax-aware highlighting
+        telescope-nvim # Fuzzy finder
+        lualine-nvim # Statusline
+        which-key-nvim # Keybinding hints
+
+        # Autocomplete Plugins
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
+        cmp-cmdline
+        LuaSnip
+        cmp_luasnip
+      ];
+
+      # Lua config for nvim-cmp
+      extraConfigLua = ''
+        local cmp = require("cmp")
+        local luasnip = require("luasnip")
+
+        cmp.setup({
+          snippet = {
+            expand = function(args)
+              luasnip.lsp_expand(args.body)
+            end,
+          },
+          mapping = cmp.mapping.preset.insert({
+            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<CR>"] = cmp.mapping.confirm({ select = true }),
+            ["<Tab>"] = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+              else
+                fallback()
+              end
+            end,
+            ["<S-Tab>"] = function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+              else
+                fallback()
+              end
+            end,
+          }),
+          sources = cmp.config.sources({
+            { name = "nvim_lsp" },
+            { name = "luasnip" },
+            { name = "buffer" },
+            { name = "path" },
+          }),
+        })
+
+        -- Autocomplete in command mode
+        cmp.setup.cmdline(":", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({
+            { name = "path" },
+            { name = "cmdline" },
+          }),
+        })
       '';
+
+      extraPackages = with pkgs; [
+        lua-language-server
+        nixd
+        pyright
+      ];
     };
   };
 
