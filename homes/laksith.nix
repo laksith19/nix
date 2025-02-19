@@ -24,6 +24,7 @@
     wofi.enable = true;
     bash.enable = true;
     starship.enable = true;
+    gh.enable = true;
 
     git = {
       enable = true;
