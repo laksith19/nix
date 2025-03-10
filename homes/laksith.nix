@@ -98,11 +98,9 @@
         };
       };
 
-      startup = [
-        {
-          command = "swaymsg output \"*\" bg ${builtins.toPath ../assets/wallpaper.png} fill";
-        }
-      ];
+      output = {
+        "*" = "${lib.toPath ../assets/wallpaper.png} fill";
+      };
     };
   };
 
