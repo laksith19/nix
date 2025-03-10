@@ -99,7 +99,7 @@
       };
 
       output = {
-        "*" = "${lib.toPath ../assets/wallpaper.png} fill";
+        "*" = "${builtins.toPath ../assets/wallpaper.png} fill";
       };
     };
   };
