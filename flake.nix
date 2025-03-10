@@ -31,10 +31,10 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    rebuild = pkgs.writeshellscriptbin "rebuild" ''
+    rebuild = pkgs.writeShellScriptBin "rebuild" ''
       sudo nixos-rebuild switch --flake ./
     '';
-    update = pkgs.writeshellscriptbin "update" ''
+    update = pkgs.writeShellScriptBin "update" ''
       git pull
       nix flake update
       git add .
