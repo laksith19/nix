@@ -100,7 +100,7 @@
 
       output = {
         "*" = {
-         bg = "${builtins.toPath ../assets/wallpaper.png} fill";
+          bg = "${builtins.path {path = ../assets/wallpaper.png;}} fill";
         };
       };
     };
