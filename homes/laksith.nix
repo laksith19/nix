@@ -99,7 +99,9 @@
       };
 
       output = {
-        "*" = "${builtins.toPath ../assets/wallpaper.png} fill";
+        "*" = {
+         bg = "${builtins.toPath ../assets/wallpaper.png} fill";
+        };
       };
     };
   };
