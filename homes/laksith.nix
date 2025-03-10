@@ -97,6 +97,12 @@
           natural_scroll = "enabled";
         };
       };
+
+      startup = [
+        {
+          command = "swaymsg output \"*\" bg ${builtins.toPath ../assets/wallpaper.png} fill";
+        }
+      ];
     };
   };
 

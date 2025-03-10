@@ -348,26 +348,5 @@
     waydroid.enable = true;
   };
 
-  stylix = {
-    enable = true;
-    image = ../assets/wallpaper.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-
-    fonts = {
-      serif = {
-        package = pkgs.nerdfonts;
-        name = "Noto Serif";
-      };
-      sansSerif = {
-        package = pkgs.nerdfonts;
-        name = "Noto Sans";
-      };
-      monospace = {
-        package = pkgs.nerdfonts;
-        name = "JetBrainsMono";
-      };
-    };
-  };
-
   system.stateVersion = "24.05";
 }
