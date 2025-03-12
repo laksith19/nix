@@ -56,7 +56,7 @@
 
       defaultWorkspace = "workspace number 1";
 
-      menu = "'${lib.getExe pkgs.wofi} --show run | ${lib.getExe' pkgs.sway "swaymsg"}'";
+      menu = "'${lib.getExe pkgs.wofi} --show drun | ${lib.getExe' pkgs.findutils "xargs"} ${lib.getExe' pkgs.sway "swaymsg"}'";
 
       window = {
         titlebar = false;
