@@ -18,13 +18,21 @@
 
   programs = {
     home-manager.enable = true;
-    kitty.enable = true;
     waybar.enable = true;
     bat.enable = true;
     wofi.enable = true;
     bash.enable = true;
     starship.enable = true;
     gh.enable = true;
+
+    kitty = {
+      enable = true;
+      theme = "Catppuccin-Macchiato";
+      font = {
+        name = "JetBrainsMono NF";
+        size = 12;
+      };
+    };
 
     git = {
       enable = true;
