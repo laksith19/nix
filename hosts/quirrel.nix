@@ -174,6 +174,7 @@
       enable = true;
       viAlias = true;
       vimAlias = true;
+      defaultEditor = true;
 
       colorschemes.catppuccin = {
         enable = true;
