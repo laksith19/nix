@@ -40,9 +40,6 @@
   networking = {
     hostName = "quirrel";
     networkmanager.enable = true;
-    firewall.allowedUDPPorts = [
-      51820 # Wireguard client
-    ];
   };
 
   i18n = {
