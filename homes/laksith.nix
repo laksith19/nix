@@ -115,6 +115,8 @@
   };
 
   services = {
+    network-manager-applet.enable = true;
+
     mako = {
       enable = true;
       defaultTimeout = 5000; # milliseconds
