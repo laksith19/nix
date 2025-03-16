@@ -27,7 +27,7 @@
   hardware = {
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
-
+    enableRedistributableFirmware = true;
     amdgpu.amdvlk.support32Bit.enable = true;
   };
 
