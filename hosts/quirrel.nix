@@ -132,11 +132,12 @@
     tmux.enable = true;
     git.enable = true;
     htop.enable = true;
-    seahorse.enable = true;
     light.enable = true;
     thunar.enable = true;
+    seahorse.enable = true;
     nm-applet.enable = true;
     nix-index-database.comma.enable = true;
+    gnupg.agent.enable = true;
 
     starship = {
       enable = true;
@@ -168,11 +169,6 @@
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
-    };
-
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
     };
 
     nixvim = {
