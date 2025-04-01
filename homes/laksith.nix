@@ -24,6 +24,7 @@
     bash.enable = true;
     starship.enable = true;
     gh.enable = true;
+    emacs.enable = true;
 
     kitty = {
       enable = true;
