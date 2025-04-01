@@ -26,6 +26,147 @@
     gh.enable = true;
     emacs.enable = true;
 
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        global = {
+          host = "*";
+          setEnv = {TERM = "xterm-256color";};
+          serverAliveInterval = 60;
+          forwardAgent = false;
+        };
+
+        beacon-master = {
+          host = "beacon-master";
+          hostname = "138.68.246.148";
+          user = "root";
+        };
+
+        soda = {
+          host = "soda";
+          hostname = "soda.berkeley.edu";
+          user = "Laksith";
+        };
+
+        elderbug = {
+          host = "elderbug";
+          hostname = "10.8.0.4";
+          serverAliveInterval = 10;
+        };
+
+        pve-tunnel = {
+          host = "pve-tunnel";
+          hostname = "192.168.1.2";
+          user = "root";
+          serverAliveInterval = 10;
+          serverAliveCountMax = 3;
+          localForwards = [
+            {
+              bind.address = "localhost";
+              bind.port = 8006;
+              host.address = "localhost";
+              host.port = 8006;
+            }
+            {
+              bind.address = "localhost";
+              bind.port = 3128;
+              host.address = "localhost";
+              host.port = 3128;
+            }
+          ];
+          extraOptions = {ExitOnForwardFailure = "yes";};
+          proxyJump = "elderbug";
+        };
+
+        cornifer = {
+          host = "cornifer";
+          hostname = "192.168.0.27";
+          proxyJump = "elderbug";
+        };
+
+        tsunami = {
+          host = "tsunami";
+          hostname = "tsunami.ocf.berkeley.edu";
+          user = "laksith";
+        };
+
+        supernova = {
+          host = "supernova";
+          hostname = "supernova.ocf.berkeley.edu";
+        };
+
+        decal = {
+          host = "decal";
+          hostname = "tsunami.ocf.berkeley.edu";
+          user = "decal";
+        };
+
+        hornet = {
+          host = "hornet";
+          hostname = "10.8.0.2";
+        };
+
+        cs61bl = {
+          host = "cs61bl";
+          hostname = "cory.eecs.berkeley.edu";
+          user = "cs61bl";
+          proxyJump = "cs61bl@eecs-bastion";
+        };
+
+        eecs-bastion = {
+          host = "eecs-bastion";
+          hostname = "instgw.eecs.berkeley.edu";
+        };
+
+        cs199 = {
+          host = "cs199";
+          hostname = "cory.eecs.berkeley.edu";
+          user = "cs199-cmx";
+          proxyJump = "cs199-cmx@eecs-bastion";
+        };
+
+        grimm = {
+          host = "grimm";
+          hostname = "192.168.1.6";
+          user = "laksith";
+          proxyJump = "elderbug";
+        };
+
+        jellyfin = {
+          host = "jellyfin";
+          hostname = "192.168.1.6";
+          user = "laksith";
+          proxyJump = "elderbug";
+        };
+
+        whitelady = {
+          host = "whitelady";
+          hostname = "192.168.1.112";
+          user = "laksith";
+          proxyJump = "elderbug";
+        };
+
+        git = {
+          host = "git";
+          hostname = "192.168.1.112";
+          port = 222;
+          user = "git";
+          proxyJump = "elderbug";
+        };
+
+        ocftv = {
+          host = "ocftv";
+          hostname = "tornado.ocf.berkeley.edu";
+          proxyJump = "supernova";
+        };
+
+        ocf-proxy-jump = {
+          host = "*.ocf.berkeley.edu *.ocf.io !supernova.ocf.io !supernova.ocf.berkeley.edu";
+          proxyJump = "supernova";
+        };
+      };
+    };
+
     kitty = {
       enable = true;
       themeFile = "Catppuccin-Macchiato";
@@ -117,6 +258,7 @@
 
   services = {
     network-manager-applet.enable = true;
+    ssh-agent.enable = true;
 
     mako = {
       enable = true;
