@@ -342,6 +342,7 @@
   };
 
   virtualisation = {
+    spiceUSBRedirection.enable = true;
     docker.rootless = {
       enable = true;
       setSocketVariable = true;
