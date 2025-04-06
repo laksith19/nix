@@ -35,6 +35,26 @@
       discord # and this...
       remmina # VNC
       zoom-us # Zoom meetings client
+
+      # utils
+      pandoc
+      shellcheck
+      bashate
+      git-branchless
+      shfmt
+      bash-language-server
+      hadolint # Docker linting
+      dockerfile-language-server-nodejs
+      ispell
+
+      # Rust
+      cargo
+      rustc
+      cargo-edit
+      cargo-outdated
+      rustfmt
+      clippy
+      rust-analyzer
     ];
   };
 
