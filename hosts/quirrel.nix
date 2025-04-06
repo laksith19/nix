@@ -93,27 +93,6 @@
       dnsutils
       traceroute
       python3Full
-
-      # GUI - sway
-      grim # Screenshot
-      slurp # Screenshot
-      wl-clipboard # Clipboard
-      mako # Notifications
-      waybar # bar
-      wofi # launcher
-      bitwarden-desktop # password manager
-      virt-viewer
-
-      # Wayland Firefox with screen-sharing support
-      pavucontrol # Audio control
-      pulseaudio # Get access to pactl for volumekeys
-      wdisplays # Monitors config
-      vlc # cause you need it you dummy
-      abiword # word processor
-      signal-desktop # well this u need i guess
-      discord # and this...
-      remmina # VNC
-      zoom-us # Zoom meetings client
     ];
     sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
