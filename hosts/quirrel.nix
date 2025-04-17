@@ -128,6 +128,7 @@
       gamescopeSession.enable = true;
     };
 
+    # Wayland firefox with screen sharing support
     firefox = {
       enable = true;
       wrapperConfig = {

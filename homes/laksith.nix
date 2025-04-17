@@ -23,11 +23,6 @@
       waybar # bar
       wofi # launcher
       bitwarden-desktop # password manager
-      virt-viewer
-
-      # Wayland Firefox with screen-sharing support
-      pavucontrol # Audio control
-      pulseaudio # Get access to pactl for volumekeys
       wdisplays # Monitors config
       vlc # cause you need it you dummy
       abiword # word processor
@@ -35,6 +30,11 @@
       discord # and this...
       remmina # VNC
       zoom-us # Zoom meetings client
+      virt-viewer
+      virt-manager
+
+      pavucontrol # Audio control
+      pulseaudio # Get access to pactl for volumekeys
 
       # utils
       pandoc
