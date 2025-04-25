@@ -46,15 +46,6 @@
       hadolint # Docker linting
       dockerfile-language-server-nodejs
       ispell
-
-      # Rust
-      cargo
-      rustc
-      cargo-edit
-      cargo-outdated
-      rustfmt
-      clippy
-      rust-analyzer
     ];
   };
 
@@ -66,7 +57,6 @@
     bash.enable = true;
     starship.enable = true;
     gh.enable = true;
-    emacs.enable = true;
 
     ssh = {
       enable = true;
