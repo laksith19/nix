@@ -46,6 +46,7 @@
       hadolint # Docker linting
       dockerfile-language-server-nodejs
       ispell
+      colmena
     ];
   };
 
