@@ -59,6 +59,18 @@
     starship.enable = true;
     gh.enable = true;
 
+    swaylock = {
+      enable = true;
+      settings = {
+        color = "000000";
+        font-size = 24;
+        indicator-idle-visible = false;
+        indicator-radius = 100;
+        line-color = "cccccc";
+        show-failed-attempts = true;
+      };
+    };
+
     ssh = {
       enable = true;
       matchBlocks = {
@@ -225,6 +237,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
+    swaynag.enable = true;
     config = {
       modifier = "Mod4";
       terminal = "${lib.getExe pkgs.kitty}";
