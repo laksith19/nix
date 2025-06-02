@@ -331,5 +331,16 @@
     waydroid.enable = true;
   };
 
+  # TODO: Potentially upstream this as it's silly to not have socket activated userspace docker
+  systemd.user.services.docker = {
+    wantedBy = lib.mkForce [];
+    after = ["docker.socket"];
+  };
+
+  systemd.user.sockets.docker = {
+    description = "Rootless-Docker Socket";
+    wantedBy = ["sockets.target"];
+  };
+
   system.stateVersion = "24.05";
 }
