@@ -340,6 +340,7 @@
   systemd.user.sockets.docker = {
     description = "Rootless-Docker Socket";
     wantedBy = ["sockets.target"];
+    listenStreams = [ "%t/docker.sock" ];
   };
 
   system.stateVersion = "24.05";
