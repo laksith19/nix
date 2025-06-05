@@ -27,7 +27,7 @@
       vlc # cause you need it you dummy
       abiword # word processor
       signal-desktop # well this u need i guess
-      discord # and this...
+      element-desktop # add this to the mix... for now
       remmina # VNC
       zoom-us # Zoom meetings client
       virt-viewer
