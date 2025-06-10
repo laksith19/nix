@@ -71,7 +71,7 @@
       uid = 1000;
       isNormalUser = true;
       description = "laksith";
-      extraGroups = ["networkmanager" "wheel" "video" "wireshark"];
+      extraGroups = ["libvirtd" "networkmanager" "wheel" "video" "wireshark"];
     };
   };
 
@@ -117,6 +117,7 @@
     nm-applet.enable = true;
     nix-index-database.comma.enable = true;
     gnupg.agent.enable = true;
+    virt-manager.enable = true;
 
     starship = {
       enable = true;
@@ -322,6 +323,7 @@
   };
 
   virtualisation = {
+    libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
     docker.rootless = {
       enable = true;
