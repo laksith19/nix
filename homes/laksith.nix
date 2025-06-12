@@ -296,7 +296,7 @@
 
       output = {
         "*" = {
-          bg = "${builtins.path {path = ../assets/wallpaper.png;}} fill";
+          bg = "${builtins.path {path = ../assets/wallpaper.jpg;}} fill";
         };
       };
     };
