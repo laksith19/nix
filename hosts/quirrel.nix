@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  catppuccin,
   ...
 }: {
   imports = [
@@ -78,7 +79,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.laksith = import ../homes/laksith.nix;
+    users.laksith.imports = [
+      ../homes/laksith.nix
+      catppuccin.homeModules.catppuccin
+    ];
   };
 
   environment = {
@@ -343,7 +347,7 @@
   systemd.user.sockets.docker = {
     description = "Rootless-Docker Socket";
     wantedBy = ["sockets.target"];
-    listenStreams = [ "%t/docker.sock" ];
+    listenStreams = ["%t/docker.sock"];
   };
 
   system.stateVersion = "24.05";

@@ -20,6 +20,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -28,6 +33,7 @@
     nixos-hardware,
     nix-index-database,
     nixvim,
+    catppuccin,
     ...
   }: let
     system = "x86_64-linux";
@@ -46,6 +52,9 @@
     nixosConfigurations.quirrel = nixpkgs.lib.nixosSystem {
       modules = [
         ./hosts/quirrel.nix
+        {
+          _module.args = {inherit catppuccin;};
+        }
 
         nixos-hardware.nixosModules.lenovo-thinkpad-x13-amd
 
@@ -54,6 +63,10 @@
         home-manager.nixosModules.default
 
         nixvim.nixosModules.nixvim
+
+        catppuccin.nixosModules.catppuccin
+
+        home-manager.nixosModules.home-manager
       ];
     };
     formatter.${system} = pkgs.alejandra;
