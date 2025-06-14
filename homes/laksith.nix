@@ -214,7 +214,6 @@
 
     kitty = {
       enable = true;
-      themeFile = "Catppuccin-Macchiato";
       font = {
         name = "JetBrainsMono NF";
         size = 12;
