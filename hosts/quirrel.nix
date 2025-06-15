@@ -122,6 +122,7 @@
     nix-index-database.comma.enable = true;
     gnupg.agent.enable = true;
     virt-manager.enable = true;
+    goldwarden.enable = true;
 
     starship = {
       enable = true;
