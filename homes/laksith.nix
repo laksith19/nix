@@ -52,7 +52,6 @@
 
   programs = {
     home-manager.enable = true;
-    waybar.enable = true;
     bat.enable = true;
     wofi.enable = true;
     bash.enable = true;
@@ -243,6 +242,7 @@
     gtk.icon.enable = true;
     cursors.enable = true;
     kitty.enable = true;
+    kitty.accent = "mauve";
   };
 
   wayland.windowManager.sway = {
@@ -315,6 +315,7 @@
   services = {
     network-manager-applet.enable = true;
     ssh-agent.enable = true;
+    gnome-keyring.enable = true;
 
     mako = {
       enable = true;

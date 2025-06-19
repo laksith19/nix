@@ -116,7 +116,6 @@
     git.enable = true;
     htop.enable = true;
     light.enable = true;
-    thunar.enable = true;
     seahorse.enable = true;
     nm-applet.enable = true;
     nix-index-database.comma.enable = true;
@@ -286,13 +285,12 @@
 
   security = {
     # Unlock on login ... hmmm this doesn't seem to work properly
-    pam.services."laksith".enableGnomeKeyring = true;
     rtkit.enable = true;
     polkit.enable = true;
   };
 
   services = {
-    gnome.gnome-keyring.enable = true;
+    gnome.core-apps.enable = true;
     hardware.bolt.enable = true;
     blueman.enable = true;
     fwupd.enable = true;
