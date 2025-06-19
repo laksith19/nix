@@ -2,26 +2,49 @@
   description = "Laksith's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixpkgs = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixpkgs";
+      ref = "nixos-unstable";
+    };
+
+    nixos-hardware = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixos-hardware";
+      ref = "master";
+    };
 
     nix-index-database = {
-      url = "github:nix-community/nix-index-database";
+      type = "github";
+      owner = "nix-community";
+      repo = "nix-index-database";
+      ref = "main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      type = "github";
+      owner = "nix-community";
+      repo = "home-manager";
+      ref = "master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      type = "github";
+      owner = "nix-community";
+      repo = "nixvim";
+      ref = "main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     catppuccin = {
-      url = "github:catppuccin/nix";
+      type = "github";
+      owner = "catppuccin";
+      repo = "nix";
+      ref = "main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
