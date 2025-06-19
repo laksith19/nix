@@ -242,7 +242,6 @@
     gtk.icon.enable = true;
     cursors.enable = true;
     kitty.enable = true;
-    kitty.accent = "mauve";
   };
 
   wayland.windowManager.sway = {
