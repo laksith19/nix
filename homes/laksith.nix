@@ -318,7 +318,7 @@
 
     mako = {
       enable = true;
-      defaultTimeout = 5000; # milliseconds
+      settings.default-timeout = 5000; # milliseconds
     };
   };
 }
