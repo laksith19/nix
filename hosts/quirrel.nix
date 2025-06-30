@@ -279,8 +279,9 @@
   };
 
   # Nerd fonts
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono" "Noto"];})
+  fonts.packages = with pkgs.nerd-fonts; [
+   jetbrains-mono
+   noto
   ];
 
   security = {
