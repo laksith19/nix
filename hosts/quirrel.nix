@@ -280,8 +280,8 @@
 
   # Nerd fonts
   fonts.packages = with pkgs.nerd-fonts; [
-   jetbrains-mono
-   noto
+    jetbrains-mono
+    noto
   ];
 
   security = {
