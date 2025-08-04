@@ -18,6 +18,10 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
+      trusted-users = [ "laksith" ];
+      trusted-substituters = [
+        "https://cache.nixos.org/"
+      ];
     };
   };
 
