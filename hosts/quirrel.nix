@@ -97,7 +97,6 @@
       lsd
       fastfetch
       wget
-      wget2
       dnsutils
       traceroute
       python3Full
@@ -107,7 +106,6 @@
       XDG_SESSION_TYPE = "wayland";
     };
     shellAliases = {
-      wget = "${lib.getExe pkgs.wget2}";
       neofetch = "${lib.getExe pkgs.fastfetch}";
       ls = "${lib.getExe pkgs.lsd}";
       tree = "${lib.getExe pkgs.lsd} --tree";
@@ -310,7 +308,6 @@
 
     greetd = {
       enable = true;
-      vt = 2;
 
       settings = {
         default_session = {

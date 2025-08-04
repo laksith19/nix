@@ -238,7 +238,6 @@
     flavor = "macchiato";
     waybar.enable = true;
     sway.enable = true;
-    gtk.enable = true;
     gtk.icon.enable = true;
     cursors.enable = true;
     kitty.enable = true;
