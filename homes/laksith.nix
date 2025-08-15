@@ -30,6 +30,7 @@
       element-desktop # add this to the mix... for now
       remmina # VNC
       zoom-us # Zoom meetings client
+      halloy # IRC
       virt-viewer
       virt-manager
 
