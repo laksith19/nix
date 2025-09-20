@@ -44,8 +44,6 @@
       git-branchless
       shfmt
       bash-language-server
-      hadolint # Docker linting
-      dockerfile-language-server-nodejs
       ispell
       colmena
     ];
