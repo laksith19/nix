@@ -99,7 +99,7 @@
       wget
       dnsutils
       traceroute
-      python3Full
+      python314
     ];
     sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
