@@ -27,7 +27,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/New_York";
 
   hardware = {
     bluetooth.enable = true;
