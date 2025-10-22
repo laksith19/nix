@@ -33,7 +33,7 @@
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
     enableRedistributableFirmware = true;
-    amdgpu.amdvlk.support32Bit.enable = true;
+    graphics.enable32Bit = true;
   };
 
   boot = {
