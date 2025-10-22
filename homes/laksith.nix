@@ -221,13 +221,17 @@
 
     git = {
       enable = true;
-      userName = "laksith19";
-      userEmail = "admin@laksith.dev";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "laksith19";
+          email = "admin@laksith.dev";
+          signingkey = "${toString config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        };
+        gpg = {
+          format = "ssh";
+          ssh.allowedsignersfile = "${toString config.home.homeDirectory}/.ssh/allowed_signers";
+        };
         commit.gpgsign = true;
-        gpg.format = "ssh";
-        gpg.ssh.allowedsignersfile = "${toString config.home.homeDirectory}/.ssh/allowed_signers";
-        user.signingkey = "${toString config.home.homeDirectory}/.ssh/id_ed25519.pub";
         init.defaultbranch = "main";
       };
     };
